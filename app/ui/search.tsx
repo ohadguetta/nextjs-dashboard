@@ -15,6 +15,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   // Debounce the search input, so we don't make a request on every key stroke
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
+    params.set('page', '1');
     if (term) {
       params.set('query', term);
     }else{
